@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
@@ -21,10 +23,16 @@ public class EmployeeController {
         return "OK";
     }
 
-    @GetMapping(value = "/find-by-id")
+    @GetMapping(value = "/findById")
     public ResponseEntity<Employee> findById(@RequestParam("employeeId") String employeeId, @RequestParam("companyId") String companyId) {
         Employee employee = service.findById(employeeId, companyId);
         return ResponseEntity.ok(employee);
+    }
+
+    @GetMapping(value = "/findByEmployeeIdentityCompanyId")
+    public ResponseEntity<List<Employee>> findByEmployeeIdentityCompanyId(@RequestParam("companyId") String companyId) {
+        List<Employee> employees = service.findByEmployeeIdentityCompanyId(companyId);
+        return ResponseEntity.ok(employees);
     }
 
 }

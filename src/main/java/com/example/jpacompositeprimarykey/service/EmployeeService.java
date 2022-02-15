@@ -6,7 +6,7 @@ import com.example.jpacompositeprimarykey.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class EmployeeService {
@@ -17,6 +17,10 @@ public class EmployeeService {
     public Employee findById(String employeeId, String companyId) {
         EmployeeIdentity employeeIdentity = new EmployeeIdentity(employeeId, companyId);
         return repository.findById(employeeIdentity).orElseThrow(() -> new RuntimeException("Not Found"));
+    }
+
+    public List<Employee> findByEmployeeIdentityCompanyId(String companyId) {
+        return repository.findByEmployeeIdentityCompanyId(companyId);
     }
 
 }

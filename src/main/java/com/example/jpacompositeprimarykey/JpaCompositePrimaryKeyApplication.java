@@ -43,6 +43,12 @@ public class JpaCompositePrimaryKeyApplication implements CommandLineRunner {
 				"fucksubzero@callicoder.com",
 				"+93-9999999999");
 
-		employeeRepository.saveAll(Arrays.asList(employee1, employee2, employee3));
+		// Insert a new Employee in the database
+		Employee employee4 = new Employee(new EmployeeIdentity("E-461", "C-986"),
+				"subzero",
+				"coldheart@callicoder.com",
+				"+94-9999999999");
+
+		employeeRepository.saveAll(Arrays.asList(employee1, employee2, employee3, employee4));
 	}
 }
