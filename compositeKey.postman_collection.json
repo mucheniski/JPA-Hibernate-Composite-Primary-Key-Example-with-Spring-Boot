@@ -11,20 +11,45 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/employees/find-by-id?employeeId=E-462&companyId=C-986",
+					"raw": "localhost:8080/employees/findById?employeeId=E-462&companyId=C-986",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"employees",
-						"find-by-id"
+						"findById"
 					],
 					"query": [
 						{
 							"key": "employeeId",
 							"value": "E-462"
 						},
+						{
+							"key": "companyId",
+							"value": "C-986"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByEmployeeIdentityCompanyId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employees/findByEmployeeIdentityCompanyId?companyId=C-986",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"findByEmployeeIdentityCompanyId"
+					],
+					"query": [
 						{
 							"key": "companyId",
 							"value": "C-986"
